@@ -161,7 +161,7 @@ static void collect_levels_and_edges(const std::vector<PlacedBox> &placed,
 
 int main() {
     for (int k = 153; k < 154; ++k) {
-        std::string in_file = "ORDERS436" + std::to_string(k) + ".csv";
+        std::string in_file = "ORDERS436/" + std::to_string(k) + ".csv";
         std::string out_file = "order_" + std::to_string(k) + "_out.csv";
 
         auto specs = load_boxes(in_file);
