@@ -1,0 +1,39 @@
+.DS_Store
+.idea/
+cmake-build-*/
+build/
+out/
+__pycache__/
+*.pyc
+*.o
+*.obj
+*.exe
+*.out
+
+# Local binaries
+pallet_analyzer
+candidate_heights
+stable_pallet_support60
+unpack
+
+# Generated packing outputs
+order_*_out*.csv
+*_reconstructed.csv
+
+# Local experiment sources, not part of the repository core
+can_h_strict.cpp
+candelta.cpp
+candidate_heights_COM.cpp
+candidate_heights_opt.cpp
+candidate_length.cpp
+candidate_widths.cpp
+decoder3.cpp
+gen.cpp
+heights_fixed_floating.cpp
+heights_fixes.cpp
+main.cpp
+main_candidate_heights_delta.cpp
+main_rectangles.cpp
+new3.cpp
+stable_pallet.cpp
+tryout.cpp
