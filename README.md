@@ -27,6 +27,7 @@ build/candidate_heights
 build/stable_pallet_support60
 build/stable_pallet_support70
 build/stable_pallet_ga70
+build/stable_multi_pallet_ga70
 build/pallet_analyzer
 build/unpack
 ```
@@ -64,6 +65,20 @@ build/unpack
 ```
 
 Аргументы: папка заказов, первый номер, последний номер, префикс результата, размер популяции, число поколений. Для небольших заказов около 100 коробок разумный старт: `24 20`.
+
+### Генетическая укладка на несколько паллет
+
+```bash
+./build/stable_multi_pallet_ga70 "Orders 0802 2011" 153 153 order_ 24 20
+```
+
+Число паллет читается из первой непустой строки входного файла. Для быстрого эксперимента можно передать override последним аргументом:
+
+```bash
+./build/stable_multi_pallet_ga70 "Orders 0802 2011" 153 153 order_ 24 20 2
+```
+
+Результат содержит первую строку с числом паллет, общую перколяцию по формуле `total_volume / (1200 * 800 * sum_pallet_heights)` и далее CSV-таблицу `Pallet,SKU,x1,y1,z1,x2,y2,z2,weight,aisle,support`.
 
 ### Анализ укладки
 
