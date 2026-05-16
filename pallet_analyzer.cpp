@@ -31,6 +31,7 @@ using std::vector;
 
 static constexpr double EPS = 1e-9;
 static constexpr double MIN_SUPPORT = 0.60;
+static constexpr double TARGET_SUPPORT = 0.70;
 
 struct Placed {
     int sku = 0;
@@ -331,6 +332,7 @@ int main(int argc, char** argv) {
     vector<double> supports(placed.size(), 0.0);
     int floating = 0;
     int good_support = 0;
+    int target_support = 0;
     double support_sum = 0.0;
     double support_min = 1.0;
 
@@ -342,6 +344,7 @@ int main(int argc, char** argv) {
 
         if (placed[i].z1 > EPS && s <= EPS) floating++;
         if (s + 1e-12 >= MIN_SUPPORT) good_support++;
+        if (s + 1e-12 >= TARGET_SUPPORT) target_support++;
     }
 
     const double support_avg = support_sum / (double)placed.size();
@@ -357,6 +360,7 @@ int main(int argc, char** argv) {
     cout << "Support avg:           " << support_avg << "\n";
     cout << "Support min:           " << support_min << "\n";
     cout << "Boxes support>=0.60:   " << good_support << " (" << (100.0 * good_support / (double)placed.size()) << "%)\n";
+    cout << "Boxes support>=0.70:   " << target_support << " (" << (100.0 * target_support / (double)placed.size()) << "%)\n";
     cout << "Floating boxes:        " << floating << "\n";
     cout << "Out of bounds:         " << out_of_bounds << "\n";
     cout << "Non-positive dims:     " << non_positive_dims << "\n";
